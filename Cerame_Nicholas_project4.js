@@ -2,21 +2,6 @@
 //September 22th, 2011
 //Deliverable 4
 
-var numArray = [5, 12, 15, 21, 38, 45, 43, 65, 123, 32, 12, 23]
-
-// Title-case a string (split into words, then uppercase the first letter of each word)
-
-var titleCase = function(string) {
-	var newString = "",
-		stringArray = [],
-		end = string.indexOf(" ");
-		
-		
-		
-	return string.substring(0, end).toUpperCase(0,1);
-}
-
-
 // Find the smallest value in an array that is greater than a given number
 
 var smallValue = function(numArray, number) {
@@ -119,6 +104,25 @@ var emailCheck = function (localEmail) {
 }
 
 
+// Does a string follow a 123-456-7890 pattern like a phone number?
+
+var numberCheck = function (phoneNumber) {
+	var number = phoneNumber,
+		regExpPattern = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/,
+		check;
+		
+	check = regExpPattern.test(number);
+	
+	if (check) {
+		return (number + " is a valid phone number.");
+	}
+	else {
+		return (number + " is not a valid phone number.");
+	}
+}
+
+var numArray = [5, 12, 15, 21, 38, 45, 43, 65, 123, 32, 12, 23]
+
 console.log(specificDec(2.1));
 console.log(specificDec(3.2123));
 console.log(specificDec(100));
@@ -133,10 +137,8 @@ console.log(urlCheck("google.com"));
 console.log(emailCheck("NickCerame@fullsail.edu"));
 console.log(emailCheck("NickCerame@fullsailedu"));
 
-console.log(titleCase("hello world"));
-
-
-
-
+console.log(numberCheck("314-583-0268"));
+console.log(numberCheck("(314)-583-0268"));
+console.log(numberCheck("314-583-026"));
 
 alert("JavaScript works!");
