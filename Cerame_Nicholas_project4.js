@@ -4,7 +4,7 @@
 
 var numArray = [5, 12, 15, 21, 38, 45, 43, 65, 123, 32, 12, 23]
 
-//Title-case a string (split into words, then uppercase the first letter of each word)
+// Title-case a string (split into words, then uppercase the first letter of each word)
 
 var titleCase = function(string) {
 	var newString = "",
@@ -17,7 +17,7 @@ var titleCase = function(string) {
 }
 
 
-//Find the smallest value in an array that is greater than a given number
+// Find the smallest value in an array that is greater than a given number
 
 var smallValue = function(numArray, number) {
 	var largerNums = [],
@@ -37,28 +37,46 @@ var smallValue = function(numArray, number) {
 		}
 	}
 	
-	return "The smallest number that is greater than " + number + " is " + smallestNum + ".";
+	return ("The smallest number that is greater than " + number + " is " + smallestNum + ".");
 }
 
 
 // Format a number to use a specific number of decimal places, as for money: 2.1 → 2.10
 
 
-var test = 2.1;
-
-console.log(test.toFixed(2));
-
-
-
-
-
-
+var specificDec = function (number) {
+	var newNumber;
+	
+	newNumber = number.toFixed(2);
+	
+	return (number + " has been rounded to " + newNumber);	
+}
 
 
+// Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a,b,c" + "," + "/" → "a/b/c".
+
+var symbolReplace = function (string) {
+	var myString = string;
+	
+	myString = myString.replace("l", "r");
+	
+	return myString;
+}
+
+
+
+
+
+
+console.log(specificDec(2.1));
+console.log(specificDec(3.2123));
+console.log(specificDec(100));
 
 console.log(smallValue(numArray, 22));
 
 console.log(titleCase("hello world"));
+
+console.log(symbolReplace("Hello World!"));
 
 
 
