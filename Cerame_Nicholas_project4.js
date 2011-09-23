@@ -65,8 +65,30 @@ var charReplace = function (string, oldChar, newChar) {
 }
 
 
+// Is the string a URL? (Does it start with http: or https:?)
 
-
+var urlCheck = function (string) {
+	var url = string,
+		check = "",
+		checkArray = [],
+		end = url.indexOf(":");
+		
+	checkArray[0] = "http:";
+	checkArray[1] = "https:";
+		
+	check = url.substring(0, end + 1);
+	console.log(check);
+	
+	if (check === checkArray[0]) {
+		return (url + " is a valid URL.");
+	}
+	else if (check === checkArray[1]) {
+		return (url + " is a valid URL.");
+	}
+	else {
+		return (url + " is not a valid URL.");
+	}
+}
 
 
 console.log(specificDec(2.1));
@@ -75,9 +97,12 @@ console.log(specificDec(100));
 
 console.log(smallValue(numArray, 22));
 
+console.log(charReplace("A,B,C,D,E", ",", "/"));
+
+console.log(urlCheck("http://www.google.com/"));
+
 console.log(titleCase("hello world"));
 
-console.log(charReplace("A,B,C,D,E", ",", "/"));
 
 
 
