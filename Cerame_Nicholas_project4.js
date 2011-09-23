@@ -55,10 +55,11 @@ var specificDec = function (number) {
 
 // Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a,b,c" + "," + "/" → "a/b/c".
 
-var symbolReplace = function (string) {
-	var myString = string;
+var charReplace = function (string, oldChar, newChar) {
+	var myString = string,
+		old = new RegExp(oldChar, "g");
 	
-	myString = myString.replace("l", "r");
+	myString = myString.replace(old, newChar);
 	
 	return myString;
 }
@@ -76,7 +77,7 @@ console.log(smallValue(numArray, 22));
 
 console.log(titleCase("hello world"));
 
-console.log(symbolReplace("Hello World!"));
+console.log(charReplace("A,B,C,D,E", ",", "/"));
 
 
 
