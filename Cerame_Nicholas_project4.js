@@ -77,7 +77,6 @@ var urlCheck = function (string) {
 	checkArray[1] = "https:";
 		
 	check = url.substring(0, end + 1);
-	console.log(check);
 	
 	if (check === checkArray[0]) {
 		return (url + " is a valid URL.");
@@ -91,6 +90,35 @@ var urlCheck = function (string) {
 }
 
 
+// Does a string follow an aaa@bbb.ccc pattern like an email address?
+
+var emailCheck = function (localEmail) {
+	var email = localEmail,
+		checkAt = 0,
+		checkDot = 0;
+		
+	checkAt = email.indexOf("@");
+	checkDot = email.indexOf(".");
+	
+	if (checkAt != -1 && checkDot != -1) {
+		if (checkAt < checkDot) {
+			if (checkDot - checkAt != 1) {
+				return (email + " is a valid email.");
+			}
+			else {
+				return (email + " is not a valid email.");
+			}
+		}
+		else {
+			return (email + " is not a valid email.");
+		}
+	}
+	else {
+		return (email + " is not a valid email.");
+	}	
+}
+
+
 console.log(specificDec(2.1));
 console.log(specificDec(3.2123));
 console.log(specificDec(100));
@@ -100,6 +128,10 @@ console.log(smallValue(numArray, 22));
 console.log(charReplace("A,B,C,D,E", ",", "/"));
 
 console.log(urlCheck("http://www.google.com/"));
+console.log(urlCheck("google.com"));
+
+console.log(emailCheck("NickCerame@fullsail.edu"));
+console.log(emailCheck("NickCerame@fullsailedu"));
 
 console.log(titleCase("hello world"));
 
